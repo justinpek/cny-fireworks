@@ -1,0 +1,191 @@
+:root {
+    --primary-gold: #FFD700;
+    --primary-red: #8B0000;
+    --dark-bg: #050000;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--dark-bg);
+    font-family: 'Ma Shan Zheng', cursive, serif;
+}
+
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.ui-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    color: var(--primary-gold);
+    pointer-events: none;
+    /* Allow clicks to pass through to canvas */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    width: 100%;
+}
+
+.title {
+    font-size: 6rem;
+    margin: 0;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #FFD700, #FFA500, #FF8C00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    animation: fadeInUp 2s ease-out;
+    letter-spacing: 5px;
+}
+
+.subtitle {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    color: #ff4d4d;
+    background: linear-gradient(to bottom, #ff6b6b, #ff0000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+    animation: fadeInUp 2.5s ease-out;
+    letter-spacing: 3px;
+}
+
+.instruction {
+    font-size: 1.5rem;
+    color: #ffd700;
+    opacity: 0.8;
+    margin-top: 2rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    animation: pulse 2s infinite;
+    transition: opacity 0.5s;
+}
+
+.dynamic-greeting {
+    font-size: 4rem;
+    font-weight: bold;
+    min-height: 5rem;
+    margin-top: 2rem;
+    background: linear-gradient(to right, #FFD700, #FFF, #FFD700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dynamic-greeting.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+}
+
+.control-btn {
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid var(--primary-gold);
+    color: var(--primary-gold);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Ma Shan Zheng', cursive;
+    transition: all 0.3s;
+    outline: none;
+    font-size: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.control-btn:hover {
+    background: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 15px var(--primary-gold);
+    transform: translateY(-2px);
+}
+
+.firecracker-btn {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+    background: rgba(255, 0, 0, 0.15);
+}
+
+.firecracker-btn:hover {
+    background: rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px #ff0000;
+}
+
+/* Active state for toggles */
+.control-btn.active {
+    background: rgba(255, 215, 0, 0.6);
+    color: #000;
+    box-shadow: 0 0 10px #FFD700;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .controls {
+        bottom: 10px;
+        right: 10px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+    }
+
+    .control-btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}

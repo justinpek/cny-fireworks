@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 丙午马年 - 金马奔腾 烟花迎春</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Updated concise greeting container -->
+    <div class="ui-layer">
+        <h1 class="title">2026 丙午马年</h1>
+        <h2 class="subtitle">金马奔腾 烟花迎春</h2>
+        <div id="dynamic-greeting" class="dynamic-greeting"></div>
+    </div>
+
+    <div class="controls" id="controlsPanel">
+        <button id="musicToggle" class="control-btn active">🎵 音乐: 开</button>
+        <button id="sfxToggle" class="control-btn">🔊 音效: 关</button>
+        <button id="firecrackerBtn" class="control-btn firecracker-btn">🧨 燃放爆竹</button>
+    </div>
+
+    <!-- Festive BGM: Gong Xi Fa Cai (User Provided) -->
+    <!-- Local file: assets/music/恭喜发财 .CCTV音乐频道.-刘德华.mp3 -->
+    <audio id="bgMusic" src="assets/music/恭喜发财 .CCTV音乐频道.-刘德华.mp3" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
